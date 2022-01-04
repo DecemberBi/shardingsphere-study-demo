@@ -1,0 +1,36 @@
+server:
+  port: 8090
+
+spring:
+  #  datasource:
+  #    driver-class-name: com.mysql.cj.jdbc.Driver
+  #    username: root
+  #    password: 12345678
+  #    url: jdbc:mysql://localhost:3306/master?characterEncoding=utf-8
+  #    type: com.zaxxer.hikari.HikariDataSource
+
+  shardingsphere:
+    datasource:
+      name: master
+      master:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: root
+        password: 12345678
+        jdbc-url: jdbc:mysql://localhost:3306/master?characterEncoding=utf-8
+
+    sharding:
+      tables:
+        t_user:
+          actual-data-nodes: master.t_user$->{0..2}
+          table-strategy:
+            inline:
+              sharding-column: id
+              algorithm-expression: t_user$->{id % 3}
+
+    props:
+      sql:
+        show: true
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
