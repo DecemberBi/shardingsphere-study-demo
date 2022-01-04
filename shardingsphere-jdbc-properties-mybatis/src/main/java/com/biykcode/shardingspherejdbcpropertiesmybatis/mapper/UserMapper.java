@@ -6,7 +6,7 @@ import com.biykcode.shardingspherejdbcpropertiesmybatis.entity.User;
 
 /**
  *
- * @author biyukun@kkworld.com
+ * @author biyukun
  * @date 2021/12/28
  */
 @Mapper
