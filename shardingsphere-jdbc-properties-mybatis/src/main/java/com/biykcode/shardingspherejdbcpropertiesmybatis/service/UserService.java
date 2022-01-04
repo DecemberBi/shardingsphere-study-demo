@@ -8,7 +8,7 @@ import com.biykcode.shardingspherejdbcpropertiesmybatis.mapper.UserMapper;
 
 /**
  *
- * @author biyukun@kkworld.com
+ * @author biyukun
  * @date 2021/12/28
  */
 @Service
